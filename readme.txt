@@ -46,6 +46,9 @@ Never pay monthly fees no matter how many subscribers you have. Never risk losin
 
 == Changelog ==
 
+= 0.4 =
+* Bugfix for Genesis Framework
+
 = 0.3 =
 * Bugfix for feed validator link 
 
