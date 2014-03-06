@@ -734,15 +734,15 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
   public function pre_get_posts() {
     global $wp_query;
 
-    if( $wp_query->is_feed && $wp_query->query_vars['feed'] == 'rss2' ) {  
+    if( $wp_query->is_feed && isset($wp_query->query_vars['feed']) && $wp_query->query_vars['feed'] == 'rss2' ) {  
       remove_action('template_redirect', 'redirect_canonical');
     }
 
-    if( $this->user_agents() && $wp_query->query_vars['feed'] != 'subscription' ) {
+    if( $this->user_agents() && ( !isset($wp_query->query_vars['feed']) || $wp_query->query_vars['feed'] != 'subscription' ) ) {
       return;
     }    
      
-    if( ($wp_query->is_feed && !$wp_query->is_archive) && $wp_query->query_vars['feed'] == 'subscription' ) {
+    if( ($wp_query->is_feed && !$wp_query->is_archive) && isset($wp_query->query_vars['feed']) && $wp_query->query_vars['feed'] == 'subscription' ) {
       $this->enabled = true;
       //  what hooks in if we are going to show the subscription page
       add_filter( 'the_posts', array( $this, 'generate_page' ), 10, 2 );	
