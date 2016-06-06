@@ -46,6 +46,9 @@ Never pay monthly fees no matter how many subscribers you have. Never risk losin
 
 == Changelog ==
 
+= 0.4.3 =
+* Fix for Subscription page being served with Content-Type: application/octet-stream
+
 = 0.4.2 =
 * Bugfix for PHP notices
 * Addition of filter for subscriber insertion query
